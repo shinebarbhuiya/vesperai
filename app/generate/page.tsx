@@ -31,7 +31,7 @@ import useStore from '@/Store';
 import { Button } from '@/components/ui/button';
 
 
-const page = () => {
+const Page = () => {
 
   // const [imageUrl, setImageUrl] = useState(null);
 
@@ -131,4 +131,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
