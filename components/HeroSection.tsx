@@ -71,7 +71,7 @@ const HeroSection = () => {
           <p className=' text-center text-lg  text-gray-500 dark:text-white/80  md:text-2xl md:px-6  md:text-left'>Create images that are far beyond reality with nothing but your imagination for free. </p>
           <div className='w-full mt-3 md:px-6'>
             
-            <Button onClick={handleClick} className='w-full     text-white bg-gradient-to-br from-fuchsia-500 to-cyan-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800  rounded-lg  text-center me-2 mb-2 ' disabled={isLoading}>
+            <Button onClick={handleClick} className='w-full  font-bold text-lg   text-white bg-gradient-to-r from-fuchsia-500 to-cyan-500 hover:bg-gradient-to-bl  focus:outline-none    rounded-lg  text-center me-2 mb-2 transition' disabled={isLoading}>
               {/* <FaMagic className="mr-2 text-lg" /> */}
               
               {isLoading? (<><ConfettiExplosion />  Loading <Loader2 width={20} className=' ml-2' /> </>) :   (<><FaMagic className="mr-2 text-lg" />Create Magic</> )  }

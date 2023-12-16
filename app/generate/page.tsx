@@ -1,19 +1,14 @@
 "use client"
-import React, { useEffect, useRef, useState } from 'react'
+
+
+import React, { useEffect, useRef } from 'react'
 
 
 
 import { Skeleton } from "@/components/ui/skeleton"
 import {saveAs} from "file-saver";
-import { Loader2 } from "lucide-react"
 
 
-
-
-
-
-
-import Image from 'next/image';
 import Link from 'next/link';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -24,6 +19,9 @@ import PromptForm from '@/components/PromptForm';
 
 import useStore from '@/Store';
 import { Button } from '@/components/ui/button';
+
+
+
 
 
 const Page = () => {
@@ -115,11 +113,11 @@ const Page = () => {
             <>
               {loading ? (
                 <div className=' w-full h-full md:h-96 md:w-96' ref={imageRef}>
-                  <Skeleton   className=' flex  h-96 border-2 items-center justify-center text-md font- text-white/80' > Please wait ...</Skeleton>
+                  <Skeleton   className=' flex  h-96 border-2 items-center justify-center text-md font-slim text-white/80' > Vesper is thinking...</Skeleton>
                 </div>
                 
               ) : (
-                <div ref={imageRef} className='flex h-96 w-96   border-2 items-center justify-center text-md font- text-white/80' >Image will be generated here.</div> 
+                <div ref={imageRef} className='flex h-96 w-96   border-2 items-center justify-center text-md font-slim text-white/80' >Image will be generated here.</div> 
               )}
               
             

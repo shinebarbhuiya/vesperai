@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider } from '@/components/theme-provider'
 import NavigationBar from '@/components/NavigationBar'
+import { ThemeProvider } from '@/components/ThemeProvider'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,6 +12,10 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Vesper - Create Free AI Generated Images ',
   description: 'Generating AI Images without spending a single cent. The best platform in the world to generate perfect AI Images.',
+
+  twitter: {
+    card: "summary_large_image"
+  }
 }
 
 export default function RootLayout({

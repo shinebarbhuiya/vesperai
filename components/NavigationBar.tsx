@@ -1,11 +1,13 @@
 "use client"
+
+
 import Link from "next/link";
-import { ModeToggle } from "./Modetoggle"
+
 import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
-import ConfettiExplosion from 'react-confetti-explosion';
 
+import ThemeToggleButton from "./ThemeToggleButton";
 
 
 const NavigationBar = () => {
@@ -20,7 +22,8 @@ const NavigationBar = () => {
       <div className="flex items-center justify-center gap-5 text-xl md:gap-8">
         <Link href="https://github.com/shinebarbhuiya/vesperai">  <FaGithub /> </Link>
         <Link href='https://twitter.com/shinebarbhuiya'> <FaXTwitter /> </Link>
-        <ModeToggle />
+        <ThemeToggleButton />
+       
       </div>
     </div>
     

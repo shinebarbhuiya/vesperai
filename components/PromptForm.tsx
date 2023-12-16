@@ -34,7 +34,7 @@ import {
     SelectValue,
   } from "@/components/ui/select"
 
-import Image from "next/image"
+
 
 import axios from "axios"
 
@@ -42,6 +42,7 @@ import { STYLES } from "@/constants"
 
 
 import useStore from "@/Store"
+import { IoSparklesSharp } from "react-icons/io5";
 
 
 
@@ -184,7 +185,7 @@ const PromptForm = () => {
               <FormLabel>
               <div className=" mt-6 flex items-center gap-2 justify-between">
                           <p className="text-lg font-semibold">Select Style</p>
-                          <Link href="https://lexica.art/">
+                          <Link href="https://stable-diffusion-art.com/sdxl-styles/">
                               <div className='flex items-center gap-1 text-md font-semibold text-green-300 hover:text-green-300/80'>
                                   <p className=" ">Styles Guide </p>
                                   <FaLongArrowAltRight />
@@ -220,8 +221,8 @@ const PromptForm = () => {
 
         
       
-        <Button className="w-full text-lg font-semibold  p-4 text-white bg-gradient-to-br from-fuchsia-500 to-cyan-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800  rounded-lg  text-center me-2 mb-2 " type="submit" disabled={loading}>
-        {loading? (<><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Imagining</>) :   (<>Generate</> )  }
+        <Button className="w-full text-lg font-semibold  p-4 text-white bg-gradient-to-r from-fuchsia-500 to-cyan-500 hover:bg-gradient-to-bl  focus:outline-none   rounded-lg  text-center me-2 mb-2 " type="submit" disabled={loading}>
+        {loading? (<><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Imagining</>) :   (<>Generate <IoSparklesSharp className="ml-2" size={18}  /> </> )  }
           
           
         </Button>
