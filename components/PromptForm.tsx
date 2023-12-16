@@ -182,7 +182,7 @@ const PromptForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormLabel>
-              <div className="mt-6 flex items-center gap-2 justify-between">
+              <div className=" mt-6 flex items-center gap-2 justify-between">
                           <p className="text-lg font-semibold">Select Style</p>
                           <Link href="https://lexica.art/">
                               <div className='flex items-center gap-1 text-md font-semibold text-green-300 hover:text-green-300/80'>
@@ -193,17 +193,17 @@ const PromptForm = () => {
                       </div>
                 
               </FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger className="focus-visible:ring-transparent" >
+              <Select   onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl className="">
+                  <SelectTrigger className="" >
                     <SelectValue className="" placeholder="Select a style to get the best result" />
                   </SelectTrigger>
                 </FormControl>
 
-                <SelectContent>
+                <SelectContent className="" >
                     {STYLES.map((style) => (
                         
-                            <SelectItem key={style.name} value={style.name}>{style.name}</SelectItem>
+                            <SelectItem className="" key={style.name} value={style.name}>{style.name}</SelectItem>
                         
                     ))}
                 </SelectContent>
