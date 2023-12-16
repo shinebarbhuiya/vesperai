@@ -13,6 +13,18 @@ export const metadata: Metadata = {
   title: 'Vesper - Create Free AI Generated Images ',
   description: 'Generating AI Images without spending a single cent. The best platform in the world to generate perfect AI Images.',
 
+
+  openGraph: {
+    images: [
+      {
+        url: "https://vesperai.vercel.app/opengraph-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  
+
   twitter: {
     card: "summary_large_image"
   }
