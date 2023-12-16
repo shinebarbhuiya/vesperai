@@ -12,6 +12,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Vesper - Create Free AI Generated Images ',
   description: 'Generating AI Images without spending a single cent. The best platform in the world to generate perfect AI Images.',
+  metadataBase: new URL("https://vesperai.vercel.app/"),
 
 
   openGraph: {
@@ -26,7 +27,15 @@ export const metadata: Metadata = {
   
 
   twitter: {
-    card: "summary_large_image"
+    card: "summary_large_image",
+    images: [
+      {
+        url: "https://vesperai.vercel.app/opengraph-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+
   }
 }
 
