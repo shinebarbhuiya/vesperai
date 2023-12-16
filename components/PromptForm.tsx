@@ -68,10 +68,10 @@ const PromptForm = () => {
 
   // const setImageUrl = useStore((state) => state.setImageUrl)
 
-  const { setImageUrl, setLoading, setImageLoading } = useStore((state) => ({
+  const { setImageUrl, setLoading, setPromptStr } = useStore((state) => ({
     setImageUrl: state.setImageUrl,
     setLoading: state.setLoading,
-    setImageLoading: state.setImageLoading
+    setPromptStr: state.setPromptStr
 
 
   }));
@@ -94,6 +94,7 @@ const PromptForm = () => {
 
     setLoading(true);
     setImageUrl("")
+    setPromptStr(values.prompt)
     
 
     // const style : any = STYLES.find((style) => style.name === values.style)?.prompt
@@ -150,7 +151,7 @@ const PromptForm = () => {
           name="prompt"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
+              <FormLabel className="">
                       <div className="flex items-center gap-2 justify-between">
                           <p className="text-lg font-semibold">Prompt</p>
                           <Link href="https://lexica.art/">
@@ -163,7 +164,7 @@ const PromptForm = () => {
                 
                 </FormLabel>
               <FormControl>
-                <Textarea rows={6} className="text-md" placeholder="Describe what you want to create here " {...field} />
+                <Textarea rows={6} className="text-md focus-visible:ring-transparent" placeholder="Describe what you want to create here " {...field} />
               </FormControl>
               <FormDescription>
                 Imagine describing a photo.
@@ -194,8 +195,8 @@ const PromptForm = () => {
               </FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a style to get the best result" />
+                  <SelectTrigger className="focus-visible:ring-transparent" >
+                    <SelectValue className="" placeholder="Select a style to get the best result" />
                   </SelectTrigger>
                 </FormControl>
 
@@ -219,8 +220,8 @@ const PromptForm = () => {
 
         
       
-        <Button className="w-full " type="submit" disabled={loading}>
-        {loading? (<><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Imagining</>) :   (<>Create Magic</> )  }
+        <Button className="w-full text-lg font-semibold  p-4 text-white bg-gradient-to-br from-fuchsia-500 to-cyan-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800  rounded-lg  text-center me-2 mb-2 " type="submit" disabled={loading}>
+        {loading? (<><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Imagining</>) :   (<>Generate</> )  }
           
           
         </Button>

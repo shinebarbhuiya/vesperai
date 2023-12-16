@@ -14,7 +14,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Autoplay } from 'swiper/modules';
 import ConfettiExplosion from 'react-confetti-explosion';
 
-
+import { Loader2 } from "lucide-react"
 
 // Import Swiper styles
 import 'swiper/css';
@@ -68,13 +68,13 @@ const HeroSection = () => {
           className=' flex flex-col items-center justify-center gap-4 md:gap-8  md:w-1/2'>
 
           <h1 className='text-3xl font-bold text-center md:text-6xl md:px-6  md:text-left'> Experience the <span className='font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-cyan-500'>Magic</span> of  <span className='font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-cyan-500'> Seamless AI  </span> Image Generation</h1>
-          <p className=' text-center text-lg  text-white/80 md:text-2xl md:px-6  md:text-left'>Create images that are far beyond reality with nothing but your imagination for free. </p>
+          <p className=' text-center text-lg  text-gray-500 dark:text-white/80  md:text-2xl md:px-6  md:text-left'>Create images that are far beyond reality with nothing but your imagination for free. </p>
           <div className='w-full mt-3 md:px-6'>
             
-            <Button onClick={handleClick} className='w-full   text-xl font-semibold  p-4 bg-emerald-400 ' disabled={isLoading}>
+            <Button onClick={handleClick} className='w-full     text-white bg-gradient-to-br from-fuchsia-500 to-cyan-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800  rounded-lg  text-center me-2 mb-2 ' disabled={isLoading}>
               {/* <FaMagic className="mr-2 text-lg" /> */}
               
-              {isLoading? (<><ConfettiExplosion /> Please wait. . .</>) :   (<><FaMagic className="mr-2 text-lg" />Create Magic</> )  }
+              {isLoading? (<><ConfettiExplosion />  Loading <Loader2 width={20} className=' ml-2' /> </>) :   (<><FaMagic className="mr-2 text-lg" />Create Magic</> )  }
              </Button>
              {/* <p className='text-center  pt-1 text-white/760'>No credit card required</p> */}
 
@@ -117,7 +117,7 @@ const HeroSection = () => {
 
               className='flex mt-3'>
               {/* <PiArrowBendLeftDownFill className="mr-1 mt-2 md:hidden" /> */}
-              <p className='text-white/80 font-md '> Created using VesperAI</p>
+              <p className= ' text-gray-500  dark:text-white/80 font-md '> Created using VesperAI</p>
               <PiArrowBendRightUpFill className="ml-1 " />
             </motion.div>
           </div>
@@ -209,7 +209,7 @@ const HeroSection = () => {
       className='hidden md:block'>
         <div className=' text-center py-10 mt-16'>
          <p className='text-3xl font-semibold'>Some Example Images Made using VesperAI</p>
-         <p className='text-center text-white/60 py-2'>Want to get results similar to these? You can find some amazing prompts to generate art like this on <Link href={"https://lexica.art/"}><span className='font-bold  text-white'>Lexica</span> </Link></p>
+         <p className='text-center  text-gray-500   dark:text-white/60 py-2'>Want to get results similar to these? You can find some amazing prompts to generate art like this on <Link href={"https://lexica.art/"}><span className='font-bold  text-white'>Lexica</span> </Link></p>
         </div>
         
         <Swiper

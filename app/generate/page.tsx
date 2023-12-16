@@ -1,12 +1,7 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react'
-import { RiMagicLine } from "react-icons/ri";
 
 
-import { Textarea } from "@/components/ui/textarea"
-import { FaLongArrowAltRight } from "react-icons/fa";
-
-import { Kalam } from 'next/font/google'
 
 import { Skeleton } from "@/components/ui/skeleton"
 import {saveAs} from "file-saver";
@@ -16,8 +11,6 @@ import { Loader2 } from "lucide-react"
 
 
 
-
-const kalam = Kalam({ subsets: ['latin'], weight: '400' })
 
 
 import Image from 'next/image';
@@ -41,10 +34,10 @@ const Page = () => {
 
   // const [imageUrl, setImageUrl] = useState(null);
 
-  const { imageUrl, loading, setImageUrl } = useStore((state) => ({
+  const { imageUrl, loading, promptStr } = useStore((state) => ({
     imageUrl: state.imageUrl,
     loading: state.loading,
-    setImageUrl: state.setImageUrl
+    promptStr: state.promptStr
   }))
 
 
@@ -79,7 +72,7 @@ const Page = () => {
     console.log("Image URL:", imgUrl);
 
     try {
-      saveAs(`https://${host}/image/${imgUrl}`, "image.png");
+      saveAs(`https://${host}/image/${imgUrl}`, `vesperai_${(promptStr).replace(" ", "_")}.png`);
     } catch (error) {
       console.error("Error downloading image:", error);
     }
@@ -88,7 +81,7 @@ const Page = () => {
 
 
   return (
-    <div className='container mt-10'>
+    <div className='container mt-10 md:mt-24'>
       {/* <div className=' flex items-center  gap-2 p-2 rounded-md text-white/80'>
             <p className='text-lg font-semibold'>Prompt</p>
            
@@ -121,12 +114,12 @@ const Page = () => {
           ): (
             <>
               {loading ? (
-                <div ref={imageRef}>
-                  <Skeleton  id='image' className='flex h-96 w-96 md:h-96 md:w-96  border-2 items-center justify-center text-md font- text-white/80' />
+                <div className=' w-full h-full md:h-96 md:w-96' ref={imageRef}>
+                  <Skeleton   className=' flex  h-96 border-2 items-center justify-center text-md font- text-white/80' > Please wait ...</Skeleton>
                 </div>
                 
               ) : (
-                <div ref={imageRef} className='flex h-96 w-96 md:h-96 md:w-96  border-2 items-center justify-center text-md font- text-white/80' >Image will be generated here.</div> 
+                <div ref={imageRef} className='flex h-96 w-96   border-2 items-center justify-center text-md font- text-white/80' >Image will be generated here.</div> 
               )}
               
             
@@ -142,7 +135,7 @@ const Page = () => {
 
 
       {/* Desktop  */}
-      <div className={kalam.className}>
+      <div >
             <div className='hidden md:fixed bottom-0 right-0 left-0  ' >
               <p className='text-center p-4  font-regular text-sm'>Made with ❤️ by  <Link href={"https://twitter.com/ShineBarbhuiya"}>Shine Barbhuiya</Link> </p>
 
@@ -151,7 +144,7 @@ const Page = () => {
       </div>
 
       {/* Phone  */}
-      <div className={kalam.className}>
+      <div >
             <div className='md:hidden' >
               <p className='text-center p-4  font-regular text-sm'>Made with ❤️ by  <Link href={"https://twitter.com/ShineBarbhuiya"}>Shine Barbhuiya</Link> </p>
 

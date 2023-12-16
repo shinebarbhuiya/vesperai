@@ -9,6 +9,10 @@ interface StoreState {
 
   imageLoading: boolean;
   setImageLoading: (imageLoading: boolean) => void;
+
+
+  promptStr: string;
+  setPromptStr: (promptStr: string) => void;
 }
 
 const useStore = create<StoreState>((set) => ({
@@ -19,6 +23,10 @@ const useStore = create<StoreState>((set) => ({
 
   imageLoading: false,
   setImageLoading: (imageLoading) => set({ imageLoading }),
+
+  promptStr: '',
+  setPromptStr: (promptStr) => set({ promptStr }),
+
 
 
 }));
