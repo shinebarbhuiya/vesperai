@@ -8,6 +8,9 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { Textarea } from "@/components/ui/textarea"
 
+import { Loader2 } from "lucide-react"
+
+
 
 import {
     Form,
@@ -217,7 +220,7 @@ const PromptForm = () => {
         
       
         <Button className="w-full " type="submit" disabled={loading}>
-        {loading? (<> Imagining. . .</>) :   (<>Create Magic</> )  }
+        {loading? (<><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Imagining</>) :   (<>Create Magic</> )  }
           
           
         </Button>

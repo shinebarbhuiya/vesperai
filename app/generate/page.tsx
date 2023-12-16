@@ -10,6 +10,8 @@ import { Kalam } from 'next/font/google'
 
 import { Skeleton } from "@/components/ui/skeleton"
 import {saveAs} from "file-saver";
+import { Loader2 } from "lucide-react"
+
 
 
 
