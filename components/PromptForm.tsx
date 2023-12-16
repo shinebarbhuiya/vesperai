@@ -49,7 +49,9 @@ const formSchema = z.object({
     .min(4, "Prompt must be at least 4 characters long.")
     .max(120, "Prompt must not exceed 120 characters."),
   
-  style: z.string().optional(),
+    style: z.string({
+      required_error: "Please select a style.",
+    }).min(1, "Please select a style."),
 });
 
 
@@ -88,6 +90,7 @@ const PromptForm = () => {
     // ✅ This will be type-safe and validated.
 
     setLoading(true);
+    setImageUrl("")
     
 
     // const style : any = STYLES.find((style) => style.name === values.style)?.prompt

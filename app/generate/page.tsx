@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { RiMagicLine } from "react-icons/ri";
 
 
@@ -33,12 +33,29 @@ import { Button } from '@/components/ui/button';
 
 const Page = () => {
 
+  
+
+  
+
   // const [imageUrl, setImageUrl] = useState(null);
 
-  const { imageUrl, loading } = useStore((state) => ({
+  const { imageUrl, loading, setImageUrl } = useStore((state) => ({
     imageUrl: state.imageUrl,
     loading: state.loading,
+    setImageUrl: state.setImageUrl
   }))
+
+
+
+  const imageRef = useRef(null);
+
+  useEffect(() => {
+    if (loading && imageRef.current) {
+      // Scroll to the image element
+      (imageRef.current as HTMLElement).scrollIntoView({ behavior: 'smooth' });
+
+    }
+  }, [loading]);
 
   // const { imageUrl, setLoading } = useStore((state) => ({
   //   imageUrl: state.imageUrl,
@@ -52,8 +69,18 @@ const Page = () => {
 
 
   const handleDownload = () => {
-    let imgUrl = imageUrl
-    saveAs(imgUrl, "image.png");
+
+    
+    const host = window.location.host;
+
+    let imgUrl = imageUrl.replace('https://results.deepinfra.com/', '');
+    console.log("Image URL:", imgUrl);
+
+    try {
+      saveAs(`https://${host}/image/${imgUrl}`, "image.png");
+    } catch (error) {
+      console.error("Error downloading image:", error);
+    }
   }
 
 
@@ -81,20 +108,23 @@ const Page = () => {
         <div className='md:w-1/2 flex items-center justify-center'>
           {(imageUrl.length !== 0) ? (
             <div className='flex flex-col justify-center items-center gap-3'>
-            <div className=''>
-              <LazyLoadImage loading='lazy' className='rounded-md' src={imageUrl} alt='ai' width={400} height={400} />
+            <div ref={imageRef} className=''>
+              <LazyLoadImage ref={imageRef} loading='lazy' className='rounded-md' src={`https://${window.location.host}/image/${imageUrl.replace('https://results.deepinfra.com/', '')}`} alt='ai' width={400} height={400} />
             </div>
 
-              <Button className='w-full' onClick={handleDownload}> Download </Button>
+              <Button ref={imageRef} className='w-full mb-6' onClick={handleDownload}> Download </Button>
               
             </div>
             
           ): (
             <>
               {loading ? (
-                <Skeleton className='flex h-96 w-96 md:h-96 md:w-96  border-2 items-center justify-center text-md font- text-white/80' />
+                <div ref={imageRef}>
+                  <Skeleton  id='image' className='flex h-96 w-96 md:h-96 md:w-96  border-2 items-center justify-center text-md font- text-white/80' />
+                </div>
+                
               ) : (
-                <div className='flex h-96 w-96 md:h-96 md:w-96  border-2 items-center justify-center text-md font- text-white/80' >Image will be generated here.</div> 
+                <div ref={imageRef} className='flex h-96 w-96 md:h-96 md:w-96  border-2 items-center justify-center text-md font- text-white/80' >Image will be generated here.</div> 
               )}
               
             

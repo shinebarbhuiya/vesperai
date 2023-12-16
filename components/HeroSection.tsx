@@ -56,9 +56,9 @@ const HeroSection = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 15 }}
           transition={{
-            delay: 0.10,
+            delay: 0.30,
             ease: 'easeInOut',
-            duration: 0.60,
+            duration: 0.80,
           }}
 
 
@@ -94,14 +94,14 @@ const HeroSection = () => {
           initial={{ opacity: 0, x: 15 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{
-            delay: 0.20,
+            delay: 0.30,
             ease: 'easeInOut',
-            duration: 0.60,
+            duration: 0.80,
           }}
           
           className='mt-8  flex flex-col items-center justify-center  md:w-1/2'>
 
-          
+          <ConfettiExplosion />
           <Image className='rounded-md border-4 shadow-lg m' src="/images/image1.png" alt="hero" width={400} height={400} />
                
           
