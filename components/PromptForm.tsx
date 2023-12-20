@@ -51,7 +51,7 @@ import { IoSparklesSharp } from "react-icons/io5";
 const formSchema = z.object({
   prompt: z.string()
     .min(4, "Prompt must be at least 4 characters long.")
-    .max(120, "Prompt must not exceed 120 characters."),
+    .max(500, "Prompt must not exceed 500 characters."),
   
     style: z.string({
       required_error: "Please select a style.",
